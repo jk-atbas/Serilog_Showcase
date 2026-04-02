@@ -1,4 +1,4 @@
-# Serilog Showcase – Migrationsleitfaden
+# Serilog Showcase
 
 ## Worum geht es?
 
@@ -36,7 +36,7 @@ SerilogShowcase/
 │   └── CustomSinks.cs            ← InMemorySink, BatchingSink + AsyncDatabaseSink + Extension Methods
 ├── Logging/
 │   ├── Legacy/
-│   │   └── LegacyLogger.cs       ← Simuliert euren bestehenden Custom-Logger
+│   │   └── LegacyLogger.cs       ← Simuliert bestehenden Custom-Logger
 │   ├── Providers/
 │   │   └── LegacyLoggerProvider.cs ← Bridge: Legacy-Logger → ILoggerProvider
 │   └── CustomEnrichers.cs        ← CorrelationId + AssemblyVersion Enricher
@@ -63,7 +63,7 @@ Die Klasse `LegacyLoggerProvider` implementiert `ILoggerProvider` und leitet
 alle `ILogger<T>`-Aufrufe an den bestehenden `ILegacyLogger` weiter.
 
 **Migration in 3 Schritten:**
-1. Services auf `ILogger<T>` umstellen (das macht ihr gerade)
+1. Services auf `ILogger<T>` umstellen
 2. `LegacyLoggerProvider` registrieren → bestehender Logger arbeitet weiter
 3. `LegacyLoggerProvider` durch `UseSerilog()` ersetzen → fertig!
 
